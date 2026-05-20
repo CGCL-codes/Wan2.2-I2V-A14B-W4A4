@@ -1,0 +1,12 @@
+weight_group_size: 64
+act_group_size: 64
+weight_clip_ratio: 1.0
+act_clip_ratio: 1.0
+quantize_input: false
+compute_dtype: bfloat16
+keep_blocks_policy: none
+head_keep: 0
+tail_keep: 0
+max_keep_blocks: 5
+skip_module_keywords: [time_embedding, time_projection, patch_embedding, text_embedding, head, modulation]
+target_linear_name_keywords: [to_q, to_k, to_v, to_out, q_proj, k_proj, v_proj, o_proj, q, k, v, o, fc1, fc2, up_proj, down_proj, gate_proj, ffn, mlp, expert]

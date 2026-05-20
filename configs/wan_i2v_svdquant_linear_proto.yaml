@@ -1,0 +1,30 @@
+enabled_low_rank: true
+rank: 16
+weight_bits: 4
+act_bits: 4
+group_size: 64
+compute_dtype: bfloat16
+weight_clip_ratio: 1.0
+act_clip_ratio: 1.0
+keep_blocks_policy: none
+
+target_module_patterns:
+  - "blocks.*.self_attn.q"
+  - "blocks.*.self_attn.k"
+  - "blocks.*.self_attn.v"
+  - "blocks.*.self_attn.o"
+  - "blocks.*.cross_attn.q"
+  - "blocks.*.cross_attn.k"
+  - "blocks.*.cross_attn.v"
+  - "blocks.*.cross_attn.o"
+  - "blocks.*.ffn.0"
+  - "blocks.*.ffn.2"
+
+skip_module_patterns:
+  - "*modulation*"
+  - "head"
+  - "head.*"
+  - "time_embedding*"
+  - "time_projection*"
+  - "patch_embedding*"
+  - "text_embedding*"
